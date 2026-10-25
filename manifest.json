@@ -1,0 +1,25 @@
+{
+  "manifest_version": 3,
+  "name": "Tool vs Chat",
+  "version": "3.0",
+  "description": "Configurable side panel for ChatGPT — build controls in-panel or import from a Google Sheet",
+  "permissions": [],
+  "host_permissions": [
+    "https://docs.google.com/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": ["https://chatgpt.com/*", "https://chat.openai.com/*"],
+      "css": ["side_panel.css"],
+      "js": ["side_panel.js"],
+      "run_at": "document_start",
+      "world": "MAIN"
+    },
+    {
+      "matches": ["https://chatgpt.com/*", "https://chat.openai.com/*"],
+      "js": ["helper.js"],
+      "run_at": "document_start",
+      "world": "ISOLATED"
+    }
+  ]
+}
